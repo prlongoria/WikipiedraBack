@@ -41,7 +41,7 @@ public class StoneController {
 
         }
 
-    @PutMapping("")
+    @PutMapping("/{id}")
     public ResponseEntity<Stone> update(@RequestBody Stone stone) {
         return ResponseEntity.ok().body(stoneService.update(stone));
 
