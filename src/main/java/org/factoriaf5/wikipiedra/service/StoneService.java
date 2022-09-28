@@ -43,17 +43,7 @@ public class StoneService {
         return stoneRepository.save(stone);
     }
 
-    public Stone create(StoneRequest stoneRequest) {
-        Stone stone = Stone
-                .builder()
-                .name(stoneRequest.getName())
-                .healing(stoneRequest.getHealing())
-                .position(stoneRequest.getPosition())
-                .color(stoneRequest.getColor())
-                .attributes(stoneRequest.getAttributes())
-                .image(stoneRequest.getImage())
-                .role("admin")
-                .build();
-        return  stoneRepository.save(stone);
+    public Stone create(Stone stone) {
+        return stoneRepository.save(stone);
     }
 }

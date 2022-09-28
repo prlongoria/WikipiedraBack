@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/stone")
-@CrossOrigin(origins = "http://127.0.0.1:5173/")
+@CrossOrigin(origins = "*")
 public class StoneController {
 
     private final StoneService stoneService;
@@ -25,23 +25,21 @@ public class StoneController {
     public ResponseEntity<List<Stone>> index() {
         return ResponseEntity.ok().body(stoneService.findAll());
     }
-    @GetMapping("/{id}")
+    @GetMapping("/show/{id}")
     public ResponseEntity<Stone> getById(@PathVariable Long id){
         return ResponseEntity.ok().body(stoneService.findById(id));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Long> deleteById(@PathVariable Long id){
         return ResponseEntity.ok().body(stoneService.delete(id));
     }
 
-    @PostMapping("")
-        public ResponseEntity<?> create(@RequestBody StoneRequest stoneRequest) {
-           return ResponseEntity.ok().body(stoneService.create(stoneRequest));
-
-        }
-
-    @PutMapping("/{id}")
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody Stone stone) {
+        return ResponseEntity.ok().body(stoneService.create(stone));
+    }
+    @PutMapping("/update")
     public ResponseEntity<Stone> update(@RequestBody Stone stone) {
         return ResponseEntity.ok().body(stoneService.update(stone));
 
