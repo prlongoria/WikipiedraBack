@@ -39,9 +39,9 @@ public class StoneController {
     public ResponseEntity<?> create(@RequestBody Stone stone) {
         return ResponseEntity.ok().body(stoneService.create(stone));
     }
-    @PutMapping("/update")
-    public ResponseEntity<Stone> update(@RequestBody Stone stone) {
-        return ResponseEntity.ok().body(stoneService.update(stone));
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Stone> update(@RequestBody Stone stone, @PathVariable Long id) {
+        return ResponseEntity.ok().body(stoneService.update(stone, id));
 
     }
 

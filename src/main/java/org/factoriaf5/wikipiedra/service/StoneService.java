@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StoneService {
@@ -29,18 +30,35 @@ public class StoneService {
 
     public Long delete(Long id) {
 //        if(stoneRepository.findById(id).isEmpty()){
-//            throw new CoderNotFoundException();
+//            throw new StoneNotFoundException();
 //        }
         stoneRepository.findById(id).orElseThrow(StoneNotFoundException::new);
         stoneRepository.deleteById(id);
         return id;
     }
 
-    public Stone update(Stone stone) {
-        if(stoneRepository.findById(stone.getId()).isEmpty()){
-            throw new StoneNotFoundException();
+    //public Stone update(Stone stone, Long id) {
+        //if(stoneRepository.findById(id).isEmpty()){
+            //throw new StoneNotFoundException();
+        //}
+        //stoneRepository.findById(id).orElseThrow(StoneNotFoundException::new);
+        //return stoneRepository.save(stone);
+    //}
+
+    public Stone update(Stone stone, Long id) {
+        Optional<Stone> stoneUpdate = stoneRepository.findById(id);
+        if (stoneUpdate.isPresent()){
+            Stone _stone = stoneUpdate.get();
+            _stone.setName(stone.getName());
+            _stone.setColor(stone.getColor());
+            _stone.setAttributes(stone.getAttributes());
+            _stone.setHealing(stone.getHealing());
+            _stone.setPosition(stone.getPosition());
+            _stone.setImage(stone.getImage());
+
+            return stoneRepository.save(_stone);
         }
-        return stoneRepository.save(stone);
+        throw new RuntimeException("Stone not found");
     }
 
     public Stone create(Stone stone) {
