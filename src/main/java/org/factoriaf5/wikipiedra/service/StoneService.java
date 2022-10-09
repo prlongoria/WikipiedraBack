@@ -37,15 +37,8 @@ public class StoneService {
         return id;
     }
 
-    //public Stone update(Stone stone, Long id) {
-        //if(stoneRepository.findById(id).isEmpty()){
-            //throw new StoneNotFoundException();
-        //}
-        //stoneRepository.findById(id).orElseThrow(StoneNotFoundException::new);
-        //return stoneRepository.save(stone);
-    //}
 
-    public Stone update(Stone stone, Long id) {
+public Stone update(Stone stone, Long id) {
         Optional<Stone> stoneUpdate = stoneRepository.findById(id);
         if (stoneUpdate.isPresent()){
             Stone _stone = stoneUpdate.get();
@@ -60,6 +53,8 @@ public class StoneService {
         }
         throw new RuntimeException("Stone not found");
     }
+
+
 
     public Stone create(Stone stone) {
         return stoneRepository.save(stone);
