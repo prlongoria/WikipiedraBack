@@ -27,20 +27,12 @@ Hay mucho trabajo por delante, haré la figura de administrador y de usuario par
   "http://localhost:8080/api/v1/stone"
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
 
 #### Get stone
 
 ```http
   "http://localhost:8080/api/v1/stone/show/" + id
 ```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of stone to fetch |
-
 
 
 ## Authors
@@ -74,23 +66,23 @@ Stack:
 
 https://www.figma.com/file/OxWw8wYeHTkpRRRDo0qxI7/WIKISTONE?node-id=0%3A1
 
-## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
-
-????
 ## Installation
 
 Install my-project with npm
 
 ```bash
     1.- Arrancar mySQL en xampp
-    2.- Arrancar el servidor del back en intelliJ
-    3.- npm run dev para arrancar el servidor del front
+    2.- Crea un bbdd llamada wikipiedra
+    3.- Importar archivo piedras.sql de wikipiedra en mysql que es la tabla de la bbdd
+    4.- En resource->application.properties-> pegar el siguiente código:
+       spring.datasource.url=jdbc:mysql://localhost:3306/wikipiedra
+       spring.datasource.username=root
+       spring.datasource.password=
+       spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL5InnoDBDialect
+       spring.jpa.hibernate.ddl-auto= update
+    5.- Arrancar el servidor del back en intelliJ
+    6.- npm run dev para arrancar el servidor del front
 ```
     
 ## License
