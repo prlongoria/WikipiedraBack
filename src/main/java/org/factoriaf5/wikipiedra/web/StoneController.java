@@ -1,10 +1,8 @@
-package org.factoriaf5.wikipiedra.api;
+package org.factoriaf5.wikipiedra.web;
 
 import org.factoriaf5.wikipiedra.entity.Stone;
-import org.factoriaf5.wikipiedra.payload.request.StoneRequest;
 import org.factoriaf5.wikipiedra.service.StoneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

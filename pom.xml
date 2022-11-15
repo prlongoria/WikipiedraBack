@@ -54,7 +54,7 @@
 
 
 		<!--Las siguientes 3 dependencias, las pongo para el login, pero mi front de vue no se verá porque no le he
-		metido la vista para el login, debo ver cómo hacerlo
+		metido la vista para el login, debo ver cómo hacerlo-->
                        <dependency>
                            <groupId>org.springframework.boot</groupId>
                            <artifactId>spring-boot-starter-security</artifactId>
@@ -71,7 +71,7 @@
                            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
                        </dependency>
 
--->
+
 
 
 		<dependency>
